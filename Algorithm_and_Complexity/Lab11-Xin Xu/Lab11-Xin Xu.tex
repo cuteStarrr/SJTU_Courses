@@ -1,0 +1,124 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{enumitem,balance}
+\usepackage{wrapfig}
+\usepackage{mathrsfs,euscript}
+\usepackage[usenames]{xcolor}
+\usepackage{hyperref}
+\usepackage[vlined,ruled,linesnumbered]{algorithm2e}
+\usepackage{array}
+\hypersetup{colorlinks=true,linkcolor=black}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{solution}{Solution}
+\newtheorem{definition}{Definition}
+\theoremstyle{definition}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\newcommand{\postscript}[2]
+ {\setlength{\epsfxsize}{#2\hsize}
+  \centerline{\epsfbox{#1}}}
+
+\renewcommand{\baselinestretch}{1.0}
+
+\setlength{\oddsidemargin}{-0.365in}
+\setlength{\evensidemargin}{-0.365in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{10.1in}
+\setlength{\textwidth}{7in}
+\makeatletter \renewenvironment{proof}[1][Proof] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
+\makeatletter
+\renewenvironment{solution}[1][Solution] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
+
+\begin{document}
+\noindent
+
+%========================================================================
+\noindent\framebox[\linewidth]{\shortstack[c]{
+\Large{\textbf{Lab11-NP Reduction}}\vspace{1mm}\\
+CS214-Algorithm and Complexity, Xiaofeng Gao \& Lei Wang, Spring 2021.}}
+\begin{center}
+\footnotesize{\color{red}$*$ If there is any problem, please contact TA Yihao Xie. }
+
+\footnotesize{\color{blue}$*$ Name:\underline{Xin Xu}  \quad Student ID:\underline{519021910726} \quad Email: \underline{xuxin20010203@sjtu.edu.cn}}
+\end{center}
+
+\begin{enumerate}
+    \item We are feeling experimental and want to create a new dish. There are various ingredients we can choose from and we'd like to use as many of them as possible, but some ingredients don't go well with others. If there are $n$ possible ingredients (numbered 1 to $n$), we write down an $n\cdot n$ matrix giving the discord between any pair of ingredients. This discord is a real number between 0.0 and 1.0, where 0.0 means "they go together perfectly" and 1.0 means "they really don't go together." Here's an example matrix when there are five possible ingredients.
+    \begin{center}
+        \begin{tabular}{|c|ccccc|}
+        \hline
+             & 1  & 2 & 3 & 4 & 5\\
+        \hline
+            1 & 0.0 & 0.4 & 0.2 & 0.9 & 1.0\\
+            2 & 0.4 & 0.0 & 0.1 & 1.0 & 0.2\\
+            3 & 0.2 & 0.1 & 0.0 & 0.8 & 0.5\\
+            4 & 0.9 & 1.0 & 0.8 & 0.0 & 0.2\\
+            5 & 1.0 & 0.2 & 0.5 & 0.2 & 0.0\\
+        \hline
+        \end{tabular}
+    \end{center}
+    In this case, ingredients 2 and 3 go together pretty well whereas 1 and 5 clash badly. Notice that this matrix is necessarily symmetric; and that the diagonal entries are always 0.0. Any set of ingredients incurs a penalty which is the sum of all discord values between pairs of ingredients. For instance, the set of ingredients $(1,3,5)$ incurs a penalty of $0.2+1.0+0.5 = 1.7$. We define the \textsc{Experimental Cuisine} as follows:
+
+        Given $n$ ingredients to choose from, the $n\times n$ discord matrix and integer $k$ and a number $p$,  decide whether there exists a collection of at least $k$ ingredients that has a penalty $\leqslant p$
+
+    Prove that $\textsc{3-SAT}\leq_p\textsc{Experimental Cuisine}$
+
+    \begin{proof}
+        Because $\textsc{3-SAT}\leq_p\textsc{Independent Set}$, so we will prove that $\textsc{Independent Set}\leq_p\textsc{Experimental Cuisine}$. We will construct an independent set to an experimental cuisine. For every two vertices $v_i,v_j$ in graph $G(V,E)$, if $v_i$ and $v_j$ are not connected, the discord number is 0. And if $v_i$ and $v_j$ are connected, the discord number is 1.
+        Assign $p=0$, so that we can only choose ingredients with discord number is $0$, which equals to find out the independent set of the original fraph $G$. So, $\textsc{Independent Set}\leq_p\textsc{Experimental Cuisine}$. And because of transitivity, $\textsc{3-SAT}\leq_p\textsc{Experimental Cuisine}$.
+    \end{proof} 
+    
+    \item An induced subgraph $G'=(V',E')$ of a graph $G=(V,E)$ is a graph that satisfies $V'\subseteq V$ and $E' =\{(u,v)\in E| u,v\in V'\}$. Given two graphs $G_1=(V_1,E_1)$ and $G_2=(V_2,E_2)$ and an integer $b$, we need to decide whether $G_1$ and $G_2$ have a common induced subgraph $G_c$ with at least $b$ nodes. This problem is called \textsc{Maximum Common Subgraph} (MCS). Prove that MCS is NP-complete. (Hint: reduce from \textsc{INDEPENDENT-SET})
+    
+    \begin{proof}
+        Prove MCS a NP Problem:\\
+        For a certification to determine whether or not the given subgraph is the maximum common subgraph, we should traverse all the nodes in the given graph to compare with $G_1$ and $G_2$ to ensure its existence. Finally we should check the number of nodes of given graph equals to $b$ or not. It's easy to know the traverse and check time are in polynomial time. So, MCS is a NP Problem.\\
+        Prove $\textsc{Independent Set}\leq_p\textsc{MCS}$:\\
+        We will construct a MCS from an independent set problem. Define $G_1(V_1,E_1)$ a random graph and $G_2(V_2,E_2)$ a complete graph, with $|V_2|=|V_1|$. And there are two complement graphes of them, $G_1'$ and $G_2'$. For $G_1'$ and $G_2'$, we find out the independent set of them. The independent set of complement graph is corresponding to the complete graph of the original graph. And we define the induced graph a complete graph, so the independent set of complement graph can reduce to MCS.
+        Because $\textsc{Independent Set}$ is a NP Complete Problem, MCS is a NP Complete Problem too.
+    \end{proof}
+
+    \item Let us define the $k$-spanning tree as a spanning tree in which each node has a degree $\leqslant k$. Given a graph $G= (V,E)$ and a positive integer $k$, we need to decide whether there exists a $k$-spanning tree in $G$. Prove that this problem is NP-complete. (Hint: reduce from \textsc{HAMILTONIAN-CYCLE})
+    
+    \begin{proof}
+        Prove $k$-spanning tree a NP Problem:\\
+        For the certification of this problem, we should traver all the vertex of the given spanning tree to determine whether the degree $\leq k$ and the set of given spanning tree nodes equals to the original vertex set. It's easy to know the traverse and check time are in polynomial time. So, $k$-spanning tree is a NP Problem.\\
+        Prove $\textsc{Hamiltonian Cycle}\leq_p\textsc{k-spanning tree}$:\\
+        It's clear that when $k=2$, $k$-spanning tree problem is equal to Hamiltonian Cycle problem. So we will extend it. For a random graph $G(V,E)$, we will add $k-2$ new nodes to every old node in $G$. So, if the old graph has a hamiltonian cycle, the new graph has a $k$-spanning tree. And if we can find a $k$-spanning tree of the new graph, we can just remove the new-added nodes to get a hamiltonian cycle.
+        So, $\textsc{Hamiltonian Cycle}\leq_p\textsc{k-spanning tree}$. And because $\textsc{Hamiltonian Cycle}$ is a NP Complete Problem, $\textsc{k-spanning tree}$ is a NP Complete Problem too.
+    \end{proof}
+    
+    \item We define the decision problem of \textsc{Knapsack Problem} as follows:
+    
+        Given $n$ indivisible objects, each with a weight of $w_i>0$ kilograms and a value $v_i>0$, a knapsack with capacity of $W$ kilograms and a number $k$, decide whether there is a collection of objects that can be put into the knapsack with a total value $V\geqslant k$.
+        
+    Prove that \textsc{Knapsack Problem} is NP-complete.
+
+    \begin{proof}
+        Prove \textsc{Knapsack Problem} a NP Problem:\\
+        According to the dynamic programming, the running time of \textsc{Knapsack Problem} is $O(nW)$. Because the length of input is $\log n$, so the running time is exponential in the input size. As a result, \textsc{Knapsack Problem} a NP Problem.\\
+        Prove $\textsc{Subset Sum}\leq_p\textsc{Knapsack Problem}$:\\
+        For a \textsc{Subset Sum} problem, we will construct it into a \textsc{Knapsack Problem}. Define that $k=W,v_i=w_i$, and the limit conditions of the newly constructed \textsc{Knapsack Problem} become $\sum_{i \in S}w_i \leq W,\sum_{i \in S}v_i \geq k = W, w_i = v_i, \forall i \in N$, which means this \textsc{Knapsack Problem} satisfies if and only if $\sum_{i \in S}w_i = W$. So, $\textsc{Subset Sum}\leq_p\textsc{Knapsack Problem}$.
+        And because $\textsc{Subset Sum}$ is a NP Complete Problem, $\textsc{Knapsack Problem}$ is a NP Complete Problem too.
+    \end{proof}
+    
+\end{enumerate}
+
+
+\textbf{Remark:} Please include your .pdf, .tex files for uploading with standard file names.
+\newpage
+
+
+%========================================================================
+\end{document}
+
