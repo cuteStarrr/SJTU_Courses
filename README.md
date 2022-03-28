@@ -1,2 +1,2 @@
 # SJTU_Courses
-Store the projects and codes of courses in SJTU
+Store the projects and codes of courses in SJTU except normal assignments.
