@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="MIPS_Multi_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="MIPS_Multi_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="15497988737fs"></ZoomEndTime>
+      <Cursor1Time time="15940000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="65" />
+   <wvobject fp_name="/MIPS_Multi_tb/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/RESET" type="logic">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/IF_INST_W" type="array">
+      <obj_property name="ElementShortName">IF_INST_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IF_INST_W[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/IF_PC4_W" type="array">
+      <obj_property name="ElementShortName">IF_PC4_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IF_PC4_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/IF_PC4_R" type="array">
+      <obj_property name="ElementShortName">IF_PC4_R[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IF_PC4_R[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/INST_ADDRESS" type="array">
+      <obj_property name="ElementShortName">INST_ADDRESS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INST_ADDRESS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/IN_ADDRESS" type="array">
+      <obj_property name="ElementShortName">IN_ADDRESS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IN_ADDRESS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/WRITE_REG" type="array">
+      <obj_property name="ElementShortName">WRITE_REG[4:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_REG[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/WRITE_DATA" type="array">
+      <obj_property name="ElementShortName">WRITE_DATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_DATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_REG_READ_DATA1" type="array">
+      <obj_property name="ElementShortName">ID_REG_READ_DATA1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_REG_READ_DATA1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_REG_READ_DATA2" type="array">
+      <obj_property name="ElementShortName">ID_REG_READ_DATA2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_REG_READ_DATA2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_REG_READ_DATA1_W" type="array">
+      <obj_property name="ElementShortName">ID_REG_READ_DATA1_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_REG_READ_DATA1_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_REG_READ_DATA2_W" type="array">
+      <obj_property name="ElementShortName">ID_REG_READ_DATA2_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_REG_READ_DATA2_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/REG_WRITE" type="logic">
+      <obj_property name="ElementShortName">REG_WRITE</obj_property>
+      <obj_property name="ObjectShortName">REG_WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/IF_INST_R" type="array">
+      <obj_property name="ElementShortName">IF_INST_R[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IF_INST_R[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_SIGNEXT_OUT" type="array">
+      <obj_property name="ElementShortName">ID_SIGNEXT_OUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_SIGNEXT_OUT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_SIGNEXT_OUT_W" type="array">
+      <obj_property name="ElementShortName">ID_SIGNEXT_OUT_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_SIGNEXT_OUT_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_REG_DST" type="logic">
+      <obj_property name="ElementShortName">ID_REG_DST</obj_property>
+      <obj_property name="ObjectShortName">ID_REG_DST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_ALU_SRC" type="logic">
+      <obj_property name="ElementShortName">ID_ALU_SRC</obj_property>
+      <obj_property name="ObjectShortName">ID_ALU_SRC</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_MEM_TO_REG" type="logic">
+      <obj_property name="ElementShortName">ID_MEM_TO_REG</obj_property>
+      <obj_property name="ObjectShortName">ID_MEM_TO_REG</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_REG_WRITE" type="logic">
+      <obj_property name="ElementShortName">ID_REG_WRITE</obj_property>
+      <obj_property name="ObjectShortName">ID_REG_WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_MEM_READ" type="logic">
+      <obj_property name="ElementShortName">ID_MEM_READ</obj_property>
+      <obj_property name="ObjectShortName">ID_MEM_READ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_MEM_WRITE" type="logic">
+      <obj_property name="ElementShortName">ID_MEM_WRITE</obj_property>
+      <obj_property name="ObjectShortName">ID_MEM_WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_BRANCH" type="logic">
+      <obj_property name="ElementShortName">ID_BRANCH</obj_property>
+      <obj_property name="ObjectShortName">ID_BRANCH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_ALU_OP" type="array">
+      <obj_property name="ElementShortName">ID_ALU_OP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_ALU_OP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_JUMP" type="logic">
+      <obj_property name="ElementShortName">ID_JUMP</obj_property>
+      <obj_property name="ObjectShortName">ID_JUMP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_REG_DST_W" type="logic">
+      <obj_property name="ElementShortName">ID_REG_DST_W</obj_property>
+      <obj_property name="ObjectShortName">ID_REG_DST_W</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_ALU_SRC_W" type="logic">
+      <obj_property name="ElementShortName">ID_ALU_SRC_W</obj_property>
+      <obj_property name="ObjectShortName">ID_ALU_SRC_W</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_MEM_TO_REG_W" type="logic">
+      <obj_property name="ElementShortName">ID_MEM_TO_REG_W</obj_property>
+      <obj_property name="ObjectShortName">ID_MEM_TO_REG_W</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_REG_WRITE_W" type="logic">
+      <obj_property name="ElementShortName">ID_REG_WRITE_W</obj_property>
+      <obj_property name="ObjectShortName">ID_REG_WRITE_W</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_MEM_READ_W" type="logic">
+      <obj_property name="ElementShortName">ID_MEM_READ_W</obj_property>
+      <obj_property name="ObjectShortName">ID_MEM_READ_W</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_MEM_WRITE_W" type="logic">
+      <obj_property name="ElementShortName">ID_MEM_WRITE_W</obj_property>
+      <obj_property name="ObjectShortName">ID_MEM_WRITE_W</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_BRANCH_W" type="logic">
+      <obj_property name="ElementShortName">ID_BRANCH_W</obj_property>
+      <obj_property name="ObjectShortName">ID_BRANCH_W</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_ALU_OP_W" type="array">
+      <obj_property name="ElementShortName">ID_ALU_OP_W[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_ALU_OP_W[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_JUMP_W" type="logic">
+      <obj_property name="ElementShortName">ID_JUMP_W</obj_property>
+      <obj_property name="ObjectShortName">ID_JUMP_W</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_PC4" type="array">
+      <obj_property name="ElementShortName">ID_PC4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_PC4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_INST_0" type="array">
+      <obj_property name="ElementShortName">ID_INST_0[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_INST_0[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ID_INST_1" type="array">
+      <obj_property name="ElementShortName">ID_INST_1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_INST_1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_WRITE_REG" type="array">
+      <obj_property name="ElementShortName">EX_WRITE_REG[4:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_WRITE_REG[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_WRITE_REG_W" type="array">
+      <obj_property name="ElementShortName">EX_WRITE_REG_W[4:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_WRITE_REG_W[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ALU_INPUT" type="array">
+      <obj_property name="ElementShortName">ALU_INPUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_INPUT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/ALUCTR_OUT" type="array">
+      <obj_property name="ElementShortName">ALUCTR_OUT[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUCTR_OUT[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_ZERO" type="logic">
+      <obj_property name="ElementShortName">EX_ZERO</obj_property>
+      <obj_property name="ObjectShortName">EX_ZERO</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_ZERO_W" type="logic">
+      <obj_property name="ElementShortName">EX_ZERO_W</obj_property>
+      <obj_property name="ObjectShortName">EX_ZERO_W</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_DATA_MEM_ADDRESS" type="array">
+      <obj_property name="ElementShortName">EX_DATA_MEM_ADDRESS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_DATA_MEM_ADDRESS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_DATA_MEM_ADDRESS_W" type="array">
+      <obj_property name="ElementShortName">EX_DATA_MEM_ADDRESS_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_DATA_MEM_ADDRESS_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_addALU_OUT" type="array">
+      <obj_property name="ElementShortName">EX_addALU_OUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_addALU_OUT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_addALU_OUT_W" type="array">
+      <obj_property name="ElementShortName">EX_addALU_OUT_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_addALU_OUT_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_REG_READ_DATA2" type="array">
+      <obj_property name="ElementShortName">EX_REG_READ_DATA2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_REG_READ_DATA2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_REG_WRITE" type="logic">
+      <obj_property name="ElementShortName">EX_REG_WRITE</obj_property>
+      <obj_property name="ObjectShortName">EX_REG_WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_MEM_READ" type="logic">
+      <obj_property name="ElementShortName">EX_MEM_READ</obj_property>
+      <obj_property name="ObjectShortName">EX_MEM_READ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_MEM_WRITE" type="logic">
+      <obj_property name="ElementShortName">EX_MEM_WRITE</obj_property>
+      <obj_property name="ObjectShortName">EX_MEM_WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_BRANCH" type="logic">
+      <obj_property name="ElementShortName">EX_BRANCH</obj_property>
+      <obj_property name="ObjectShortName">EX_BRANCH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_MEM_TO_REG" type="logic">
+      <obj_property name="ElementShortName">EX_MEM_TO_REG</obj_property>
+      <obj_property name="ObjectShortName">EX_MEM_TO_REG</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/EX_JUMP" type="logic">
+      <obj_property name="ElementShortName">EX_JUMP</obj_property>
+      <obj_property name="ObjectShortName">EX_JUMP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/MEM_dataMem_READ_DATA" type="array">
+      <obj_property name="ElementShortName">MEM_dataMem_READ_DATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_dataMem_READ_DATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/MEM_dataMem_READ_DATA_W" type="array">
+      <obj_property name="ElementShortName">MEM_dataMem_READ_DATA_W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_dataMem_READ_DATA_W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/MEM_DATA_MEM_ADDRESS" type="array">
+      <obj_property name="ElementShortName">MEM_DATA_MEM_ADDRESS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_DATA_MEM_ADDRESS[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/MEM_REG_WRITE" type="logic">
+      <obj_property name="ElementShortName">MEM_REG_WRITE</obj_property>
+      <obj_property name="ObjectShortName">MEM_REG_WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/MEM_MEM_TO_REG" type="logic">
+      <obj_property name="ElementShortName">MEM_MEM_TO_REG</obj_property>
+      <obj_property name="ObjectShortName">MEM_MEM_TO_REG</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/MEM_JUMP" type="logic">
+      <obj_property name="ElementShortName">MEM_JUMP</obj_property>
+      <obj_property name="ObjectShortName">MEM_JUMP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/MEM_WRITE_REG" type="array">
+      <obj_property name="ElementShortName">MEM_WRITE_REG[4:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_WRITE_REG[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/dataMem/memFile" type="array">
+      <obj_property name="ElementShortName">memFile[0:31][31:0]</obj_property>
+      <obj_property name="ObjectShortName">memFile[0:31][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/instMemory/instFile" type="array">
+      <obj_property name="ElementShortName">instFile[0:15][31:0]</obj_property>
+      <obj_property name="ObjectShortName">instFile[0:15][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Multi_tb/MIPS_Multi/register/regFile" type="array">
+      <obj_property name="ElementShortName">regFile[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">regFile[31:0][31:0]</obj_property>
+   </wvobject>
+</wave_config>
