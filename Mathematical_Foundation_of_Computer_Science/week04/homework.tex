@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+
+
+\newtheorem*{solution}{Solution}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 3}\\
+\vspace{2mm}
+\footnotesize{$*$ Name:\underline{Xin Xu}  \quad Student ID:\underline{519021910726} \quad Email: \underline{xuxin20010203@sjtu.edu.cn}}
+\vspace{2mm}
+
+\end{center}
+\begin{hw}Prove the formula
+\begin{enumerate}
+\item
+  ${r\choose r} +{r+1 \choose r}+{r+2 \choose r}+\cdots+{n\choose r} ={n+1 \choose r+1}$
+
+ \item $\sum_{k=0}^{n} {m+k-1 \choose k} ={n+m \choose n}$
+
+\end{enumerate}
+\end{hw}
+
+\begin{proof}
+    \begin{enumerate}
+        \item ${r\choose r} +{r+1 \choose r}+{r+2 \choose r}+\cdots+{n\choose r}$
+        \\$={r+1\choose r+1} +{r+1 \choose r}+{r+2 \choose r}+\cdots+{n\choose r}$
+        \\$={r+2\choose r+1} +{r+2 \choose r}+\cdots+{n\choose r}$
+        \\$={n+1\choose r+1}$
+        \item $\sum_{k=0}^{n} {m+k-1 \choose k}$
+        \\$={m-1\choose 0}+{m\choose 1}+{m+1\choose 2}+\cdots+{m+n-1\choose n}$
+        \\$={m\choose 0}+{m\choose 1}+{m+1\choose 2}+\cdots+{m+n-1\choose n}$
+        \\$={m+1\choose 1}+{m+1\choose 2}+\cdots+{m+n-1\choose n}$
+        \\$={m+n\choose n}$
+    \end{enumerate}
+\end{proof}
+\begin{hw}
+For natural numbers $m\leq n$ calculate (i.e. express by a simple formula not containing a sum) $\sum_{k=m}^n {k \choose m}{n \choose k}$.
+\end{hw}
+
+\begin{solution}
+    By the meaning of combinatorial counting, this formula illustrates a situation where we pick $k$ people to form a group from the total $n$ people, and appoint $m$ people in the group as leaders.
+    Then, the possible number of this kind of appointments is the answer. We should note that different groups and different numbers mean different appointments. So, $\sum_{k=m}^n {k \choose m}{n \choose k}$ can be translated into:
+    ${n\choose m}\sum_{k=0}^n {n-m\choose k}$. And ${n\choose m}$ means the possible appointments of the leaders, $\sum_{k=0}^n {n-m\choose k}$ means the possible situations for other group members. So,
+    \\$\sum_{k=m}^n {k \choose m}{n \choose k}$
+    \\$={n\choose m}\sum_{k=0}^n {n-m\choose k}$
+    \\$={n\choose m}(1+1)^{n-m}$
+    \\$={n\choose m}2^{n-m}$
+\end{solution}
+
+\begin{hw}
+Calculate (i.e. express by a simple formula not containing a sum)
+\begin{enumerate}
+  \item $\sum_{k=1}^n {k\choose m}\frac{1}{k}$
+  \item $\sum_{k=0}^n{k\choose m}k$
+\end{enumerate}
+\end{hw}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $\sum_{k=1}^n {k\choose m}\frac{1}{k}$
+        \\$=\frac{k!}{(k-m)!m!}\times \frac{1}{k} $
+        \\$=\frac{(k-1)!}{(k-m)!(m-1)!}\times \frac{1}{m} $
+        \\$=\frac{1}{m}\sum_{k=1}^n {k-1\choose m-1}$
+        \\$=\frac{1}{m}{n\choose m}$
+        \item $\sum_{k=0}^n{k\choose m}k$
+        \\$=\sum_{k=0}^n{k\choose m}(k+1)-\sum_{k=0}^n{k\choose m}$
+        \\$=\frac{(k+1)!}{(k-m)!m!}-{n+1\choose m+1}$
+        \\$=(m+1)\frac{(k+1)!}{(k-m)!(m+1)!}-{n+1\choose m+1}$
+        \\$=(m+1)\sum_{k=0}^n {k+1\choose m+1}-{n+1\choose m+1}$
+        \\$=(m+1){n+2\choose m+2}-{n+1\choose m+1}$
+    \end{enumerate}
+\end{solution}
+
+\begin{hw}
+\begin{enumerate}[(a)]
+\item Using \emph{\textbf{Problem 1.}} for $r=2$, calculate the sum $\sum_{i=2}^n i(i-1)$ and $\sum_{i=1}^n i^2$.
+\item Use $(a)$ and \emph{\textbf{Problem 1.}}  for $r=3$, calculate $\sum_{i=1}^n i^3$.
+\end{enumerate}
+\end{hw}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $\sum_{i=2}^n i(i-1)$
+        \\$=2\times \frac{\sum_{i=2}^n i(i-1)}{2\times 1}$
+        \\$=2\times ({r\choose r} +{r+1 \choose r}+{r+2 \choose r}+\cdots+{n\choose r})$, $r=2$
+        \\$=2\times {n+1\choose r+1}$, using \textbf{Problem 1.}. And $r=2$.
+        \\$=2{n+1\choose 3}$
+        \\$\sum_{i=1}^n i^2$
+        \\$=\sum_{i=2}^n i(i-1)+1^2+\sum_{i=2}^n i$
+        \\$=2{n+1\choose 3}+1+\frac{(n+2)(n-1)}{2}$
+        \\$=2{n+1\choose 3}+\frac{n(n+1)}{2}$
+        \item $\sum_{i=1}^n i^3$
+        \\$=\sum_{i=1}^n i(i-1)(i-2)+3i^2-2i$
+        \\$=6\times \frac{\sum_{i=1}^n i(i-1)(i-2)}{3\times 2\times 1}+6{n+1\choose 3}+\frac{n(n+1)}{2}$
+        \\$=6{n+1\choose 4}+6{n+1\choose 3}+\frac{n(n+1)}{2}$
+        \\$=6{n+2\choose 4}+\frac{n(n+1)}{2}$
+    \end{enumerate}
+\end{solution}
+
+\begin{hw}
+How many functions $f:\{1,2,\ldots, n\}\rightarrow \{1,2,\ldots, n\}$ are there that are \emph{monotone}; that is, for $i<j$ we have $f(i)\leq f(j)$?
+\end{hw}
+
+\begin{solution}
+    We can transfer this question into another question: for any integer $1\leqslant i\leqslant n, x_i\geqslant 0, x_1+x_2+\cdots +x_n=n$. And $x_i$ means the number of $x$ that satisfies $f(x)=i$. So, we can easily know that the answer is ${2n-1\choose n-1}$.
+\end{solution}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:
