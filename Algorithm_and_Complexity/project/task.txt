@@ -1,0 +1,27 @@
+A1,150.0 A2,180.0 Execution Time (s),1.5 
+A1,150.0 A2,180.0 Execution Time (s),1.5 
+B1,180.0 B2,180.0 Execution Time (s),2.5 
+B1,200.0 B2,300.0 tB1,100.0 Execution Time (s),1.0 
+C1,50.0 C2,50.0 Execution Time (s),4.0 
+C2,70.0 tC1,30.0 Execution Time (s),1.0 
+C1,30.0 tC1,20.0 tC2,20.0 Execution Time (s),2.0 
+D1,100.0 D2,200.0 D3,300.0 Execution Time (s),2.0 
+D1,200.0 D2,300.0 D3,100.0 Execution Time (s),2.0 
+D2,50.0 tD1,200.0 tD2,200.0 Execution Time (s),1.5 
+D1,100.0 D3,100.0 tD2,200.0 Execution Time (s),1.0 
+D2,200.0 tD3,200.0 Execution Time (s),1.0 
+E1,60.0 E2,80.0 E3,120.0 Execution Time (s),4.0 
+E2,90.0 E4,120.0 tE1,150.0 Execution Time (s),2.0 
+E1,30.0 E3,50.0 tE1,80.0 Execution Time (s),3.0 
+E2,160.0 tE2,100.0 Execution Time (s),2.0 
+E3,160.0 E4,180.0 tE3,90.0 Execution Time (s),1.0 
+E1,50.0 tE3,50.0 tE5,180.0 Execution Time (s),3.0 
+F1,300.0 Execution Time (s),4.0 
+F2,100.0 tF1,100.0 Execution Time (s),2.0 
+F3,200.0 tF1,120.0 Execution Time (s),1.0 
+F4,100.0 tF1,100.0 Execution Time (s),3.0 
+F1,50.0 F2,50.0 F3,50.0 tF2,100.0 tF3,150.0 Execution Time (s),1.0 
+F1,70.0 F4,70.0 tF4,90.0 Execution Time (s),1.5 
+F3,100.0 F5,200.0 tF5,300.0 Execution Time (s),2.5 
+F2,150.0 F5,100.0 tF5,500.0 tF6,50.0 Execution Time (s),2.0 
+F1,250.0 F3,30.0 F4,80.0 F5,200.0 tF7,200.0 tF8,200.0 Execution Time (s),3.5 
