@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 10}\\
+\vspace{2mm}
+\end{center}
+
+\begin{hw}
+Show that, for constant $p\in(0,1)$, almost no graph in $\mathcal{G}(n,p)$ has a separating complete subgraph.
+\end{hw}
+[Hint] \\
+1. Recall the property $P_{i,j}$ from the slides\\
+2.
+You may need to recall the definitions:
+\begin{itemize}
+  \item \textbf{Separating subgraph}: Given $G=(V,E)$, and some $X\subseteq V\cup E$, we call $X$ a separating subgraph if there exists two vertices  $u,v \in V(G-X)$  such that $u,v$ are in the some component of $G$, while $u,v$ lie in two disconnected components of $G-X$ (i.e., $X$ separates $u$ and $v$).
+  \item \textbf{Separating complete subgraph}: If the above subgraph $X$ is also a complete graph.
+\end{itemize}
+
+\begin{sol}
+    Consider $P_{2,1}$. For any vertices $u,v,w$, there is a vertice $x$ that connects $u,v$ but disconnect $x$. Repeatedly, there is a vertex $y$ that connects $u,v$ but disconnects $x$.
+    So, if there is a separating complete subgraph $X$, it connot hold $x,y$ concurrently. So, $u,v$ must be connected, which is contrasted. In a nutshell, almost no graph in $\mathcal{G}(n,p)$ has a separating complete subgraph.
+\end{sol}
+
+\begin{hw}
+Consider $\mathbf{G}(n,p)$ with $p=\frac{1}{3n}$.
+\begin{enumerate}[]
+  \item Use the second moment method to show that with high probability there exists a simple path of length 10.
+ % \item Argue that on the other hand, it is unlikely there exists any cycle of length 10.
+\end{enumerate}
+\end{hw}
+
+\begin{sol}
+    Suppose $x=\sum I_k, I_k$ is a random order to get $11$ vertices from $n$ vertices. The order of choosing vertices is the way to connecting a simple path. And 
+    $$ I_k=\left\{
+\begin{array}{rcl}
+1       &      & I_k\text{ is a simple path of length 10}\\
+0     &      & \text{others}
+\end{array} \right. $$ 
+    So, $E(x) = \binom{n}{11}\times 11! \times p^{10},\lim_{n \to \infty} E(x) = \frac{n(n-1)(n-2)\ldots (n-10)}{(3n)^{10}} = \infty $. And let $a = \binom{n}{11}\times 11!$.\\
+    $E(x^2) = E(\sum I_k \sum I_j)= E(\sum I_k^2)+2E(\sum I_k I_j).$\\
+    $E(\sum I_k^2) = E(\sum I_k) =E(x) = o(E^2(x))$.\\
+    $E(\sum I_k I_j) = a(a-1)p^{20} = \theta (E^2(x))$.\\
+    So, $E(x^2) = E(\sum I_k \sum I_j)= E(\sum I_k^2)+2E(\sum I_k I_j)=E^2(x)(1+o(1))$. So, $Var(x) = o(E^2(x))$. $x$ is almost surely greater than zero, which means there exists a simple path of length 10 with high probability.
+\end{sol}
+
+
+\begin{hw}
+Prove that `the disappearance of isolated vertices in $\mathbf{G}(n,p)$' has a sharp threshold of $\frac{\ln n}{n}$.
+\end{hw}
+[Hint: John's book, theorem 8.6]
+
+\begin{proof}
+    Let $x$ be the number of isolated vertices in $G(n,p)$. Then, 
+    \[ E(x) = n(1-p)^{n-1}. \]
+    Let's consider $p = c \frac{\ln n}{n}$. Then,
+    \[ \lim_{x \to \infty} E(x) = \lim_{x \to \infty} n(1-c\frac{\ln n}{n})^n = \lim_{x \to \infty} ne^{-c\ln n} =\lim_{x \to \infty} n^{1-c} .    \]
+    So, when $c>1$, the expected number of isolated vertices goes to $0$, which means almost all graphs have no isolated vertices.
+    When $c<1$, we will consider the second moment method.\\
+    Let $x = I_1+I_2+\ldots +I_n$ where $I_i$ is a binary variable which means whether vertex $i$ is an isolated vertex. Then, $E(x^2) = \sum_{i = 1}^{n} E(I_i^2) + 2\sum_{i<j} E(I_iI_j)  $.\\
+    $\sum_{i = 1}^{n} E(I_i^2) = \sum_{i = 1}^{n} E(I_i) = E(x)$.\\
+    $2\sum_{i<j} E(I_iI_j)=n(n-1)E(I_iI_j)= n(n-1)(1-p)^{2(n-1)-1}$.\\
+    So, $E(x^2) = E(x) + n(n-1)(1-p)^{2(n-1)-1}$. For $p = c\frac{\ln n}{n}$ and $c<1$,
+    \[ \lim_{x \to \infty} \frac{E(x^2)}{E^2(x)} = \lim_{x \to \infty} \frac{n(1-p)^{n-1}+n(n-1)(1-p)^{2(n-1)-1}}{n^2(1-p)^{2(n-1)}} = \lim_{x \to \infty} [\frac{1}{n^{1-c}}+(1-\frac{1}{n})\frac{1}{1-c\frac{\ln n}{n}}]   \]
+    \[= \lim_{x \to \infty} (1+c\frac{\ln n}{n}) = o(1)+1 .\]
+    So, $Var(x)= E(x^2) - E^2(x) = o(E^2(x))$, which means $x$ is almost surely larger than $0$ when $c<1$. In a nutshell, this statement has to be proved.
+\end{proof}
+
+
+\begin{hw}(Optional)
+
+\begin{enumerate}
+
+\item Prove that the threshold for the existence of cycles in $\mathcal{G}(n,p)$ is $p=\frac{1}{n}$.
+\item Search the \emph{World Wide Web} to find some real world graphs in machine readable form or data bases that could automatically be converted to graphs.
+
+\begin{enumerate}
+  \item Plot the degree distribution of each graph.
+  \item Compute the average degree of each graph.
+  \item Count the number of connected components of each size in each graph.
+  \item Describe what you find.
+\end{enumerate}
+\item Create a simulation (an animation) to  show the evolution of the $\mathcal{G}(n,p)$ (Erd\"{o}s-R\'{e}nyi) random graph as its density $p$ is gradually increased. Observe the phase transitions for trees of increasing orders, followed by the emergence of the giant component, etc.
+\end{enumerate}
+\end{hw}
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:

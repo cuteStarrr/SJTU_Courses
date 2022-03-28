@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 6}\\
+\vspace{2mm}
+\footnotesize{$*$ Name:\underline{Xin Xu}  \quad Student ID:\underline{519021910726} \quad Email: \underline{xuxin20010203@sjtu.edu.cn}}
+\vspace{2mm}
+\end{center}
+
+\begin{hw}
+Prove that any natural number $n\in\mathbb{N}$ can be written as a sum of mutually distinct Fibonacci numbers.
+\end{hw}
+
+\begin{sol}
+    We can prove it by mathematical induction. For Fibonacci numbers, $f_n=f_{n-1}+f_{n-2}$, and $f_n\geqslant f_{n-1}$ for any integer $n\geqslant 1$. For any natural number $n\in \mathbb{N}$, let $f_k$
+    be the largest Fibonacci number satisfying $f_k\leqslant n$. And for the remainded value $n-f_k$, we can know it is smaller than $f_k$ from the definition that $f_k=f_{k-1}+f_{k-2}$ and $f_k$ is an increasing sequence. Repeat this process. Because the minimized Fibonacci number that $>0$ is $f_1=1$, this recurrence must have an end and must result in a solution.
+    So, any natural number $n\in\mathbb{N}$ can be written as a sum of mutually distinct Fibonacci numbers.
+\end{sol}
+    
+
+
+\begin{hw}
+Express the $n^{th}$ term of the sequences given by the following recurrence relations
+
+\begin{enumerate}
+ \item $a_0=2, a_1=3, a_{n+2}=3a_n - 2a_{n+1} $ $(n=0,1,2,\ldots)$.
+ \item $a_0=1, a_{n+1}=2a_n+3$ $(n=0,1,2,\ldots).$
+\end{enumerate}
+\end{hw}
+
+\begin{sol}
+    \begin{enumerate}
+        \item The characteristic polynomial is: $x^2+2x-3=0$. The solution is: $x_1=1,x_2=-3$. Since $x_1\neq x_2$, the form of $a_n=c_1+c_2(-3)^n$.
+        \\ With the condition that $a_0=2,a_1=3$, we can get the equation of $c_1,c_2$: $c_1+c_2=2,c_1-3c_2=3$. So, $c_1=9/4,c_2=-1/4$.
+        \\ As a result, $a_n=\frac{9}{4}-\frac{1}{4}(-3)^n  $.
+        \item The homogeneous characteristic polynomial is $x=2$. So the homogeneous solution is $c2^n$.
+        \\ We suppose that the special solution is $a_n=c'$. With the condition $a_{n+1}=2a_n+3$, we can get $c'=2c'+3$. So, $c'=-3$.
+        \\ As a result, the form of $a_n$ is $a_n=c\times 2^n-3$. Because $a_0=1$, we can get $c=4$.
+        \\ So, $a_n=2^{n+2}-3$.
+    \end{enumerate}
+\end{sol}
+
+
+\begin{hw}
+Solve the recurrence relation $a_{n+2}=\sqrt{a_{n+1}a_n}$ with initial conditions $a_0=2, a_1=8$ and find $\lim_{n\rightarrow \infty}a_n $.
+\end{hw}
+
+\begin{sol}
+    $a_{n+2}=\sqrt{a_{n+1}a_n} \Rightarrow a_{n+2}^2=a_{n+1}a_n\Rightarrow 2\log_2 a_{n+2}=\log_2 a_{n+1}+\log_2 a_n$. Let $b_n=\log_2 a_n$, so the recurrence becomes $2b_{n+2}=b_{n+1}+b_n$. And $b_0=1,b_1=3$.
+    \\So, the characteristic polynomial of $b_n$ is: $2x^2-x-1=0$. And the solution is $x_1=1,x_2=-\frac{1}{2} $. So, the form of $b_n=c_1+c_2(-\frac{1}{2})^n $.
+    \\Because $b_0=1,b_1=3$, we can get $c_1=\frac{7}{3},c_2=-\frac{4}{3}  $. So, $b_n=\frac{7}{3}-\frac{4}{3}(-\frac{1}{2} )^n  $.
+    \\ So, $a_n=2^{\frac{7}{3}-\frac{4}{3}(-\frac{1}{2} )^n}$. And $\lim_{n\rightarrow \infty}a_n =2^{\lim_{n\rightarrow \infty}\frac{7}{3}-\frac{4}{3}(-\frac{1}{2} )^n}=2^\frac{7}{3} $.
+\end{sol}
+
+\begin{hw}
+Show that for any $n\geq 1$, the number $\frac{1}{2}[(1+\sqrt{2})^n+(1-\sqrt{2})^n]$ is an integer.
+\end{hw}
+
+\begin{sol}
+    Suppose that there is a recurrence sequence $a_n$, and the expression of $a_n=\frac{1}{2}[(1+\sqrt{2})^n+(1-\sqrt{2})^n]$. Regard this recurrence relation: $h_n=2h_{n-1}+h_{n-2}$. The characteristic polynomial is $x^2-2x-1=0$.
+    And the answer is $x_1=1+\sqrt{2}, x_2=1-\sqrt{2}  $. So, the form of $a_n=c_1(1+\sqrt{2} )^n+c_2(1-\sqrt{2} )^n$. If $h_0=1,h_1=1$, we can get $c_1=c_2=\frac{1}{2} $. So, $a_n=\frac{1}{2}[(1+\sqrt{2})^n+(1-\sqrt{2})^n]$.
+    According to the discussion above, $\frac{1}{2}[(1+\sqrt{2})^n+(1-\sqrt{2})^n]$ is the $n^{th}$ expression of the recurrence relation $h_n=2h_{n-1}+h_{n-2}$. And because $h_0=1,h_1=1$, $h_n$ is an incremental sequence of integers.
+    So, the statement has proved.
+\end{sol}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:

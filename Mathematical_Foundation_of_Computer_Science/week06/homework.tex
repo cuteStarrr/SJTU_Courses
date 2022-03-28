@@ -1,0 +1,147 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 5}\\
+\vspace{2mm}
+\footnotesize{$*$ Name:\underline{Xin Xu}  \quad Student ID:\underline{519021910726} \quad Email: \underline{xuxin20010203@sjtu.edu.cn}}
+\vspace{2mm}
+\end{center}
+
+
+\begin{hw}
+  \begin{enumerate}
+    \item  Determine the coefficient of $x^{50}$ in $(x^7+x^8+x^9+x^{10}+\cdots)^6$
+    \item  Determine the coefficient of $x^3$ in $(2+x)^{\frac{3}{2}}/(1-x)$
+    \item  Determine the coefficient of $x^4$ in $(2+3x)^{5}\sqrt{1-x}$
+  \end{enumerate}
+\end{hw}
+
+\begin{sol}
+    \begin{enumerate}
+        \item We can simplify this formula:
+        \\$(x^7+x^8+x^9+x^{10}+\cdots)^6$
+        \\$=x^{42}(1+x+x^2+\ldots )^6$
+        \\$=x^{42}\frac{1}{(1-x)^6}$
+        \\$=x^{42}(\binom{5}{5}+\binom{6}{5}x+\binom{7}{5}x^2+\ldots +\binom{5+k}{5}x^k+\ldots )$
+        \\So, the coefficient of $x^50$ is $\binom{5+8}{5}=1287 $.
+        \item We can simplify this formula:
+        \\$(2+x)^{\frac{3}{2}}/(1-x)$
+        \\$=(2^\frac{3}{2}+\frac{3}{2}2^\frac{1}{2}x+\frac{3}{8}2^\frac{-1}{2}x^2+\frac{-1}{16}2^\frac{-3}{2}x^3+\ldots)(1+x+x^2+x^3+\ldots)$
+        \\So, the coefficient of $x^3$ is $235\sqrt{2}/64$.
+        \item We can simplify this formula:
+        \\$(2+3x)^{5}\sqrt{1-x}$
+        \\$=(32+240x+720x^2+1080x^3+810x^4+\ldots)(1-\frac{1}{2}x-\frac{1}{8}x^2-\frac{1}{16}x^3-\frac{5}{128}x^4-\ldots)$
+        \\So, the coefficient of $x^4$ is $810-540-90-15-\frac{5}{4}=163.75$.
+    \end{enumerate}
+\end{sol}
+
+
+
+
+\begin{hw} Find generating functions for the following sequences (express them in a closed form, without infinite series!):
+\begin{enumerate}
+  \item $0,0,0,0,-6,6,-6,6,-6,\cdots$.
+  \item $1,0,1,0,1,0,\cdots.$
+  \item $1,2,1,4,1,8\cdots$
+\end{enumerate}
+\end{hw}
+
+\begin{sol}
+    \begin{enumerate}
+        \item $(1,1,1,1,1,1,\cdots)\Rightarrow a(x)=\frac{1}{1-x} $.
+        \\$(6,6,6,6,6,\cdots) \Rightarrow a(x)=\frac{6}{1-x}$.
+        \\$(6,-6,6,-6,6,\cdots) \Rightarrow a(x)=\frac{6}{1+x}$.
+        \\$(-6,6,-6,6,-6,\cdots)\Rightarrow a(x)=\frac{-6}{1+x}$
+        \\$(0,0,0,0,-6,6,-6,6,-6,\cdots) \Rightarrow a(x)=\frac{-6x^4}{1+x}$.
+        \item $(1,1,1,1,1,1,\cdots)\Rightarrow a(x)=\frac{1}{1-x} $.
+        \\$(1,-1,1,-1,1,-1,\cdots)\Rightarrow a(x)=\frac{1}{1+x} $.
+        \\$(2,0,2,0,2,0,\cdots)\Rightarrow a(x)=\frac{2}{1-x^2}$.
+        \\$(1,0,1,0,1,0,\cdots)\Rightarrow a(x)=\frac{1}{1-x^2}$.
+        \item $(2,2,2,2,2,2,\cdots)\Rightarrow a(x)=\frac{2}{1-x} $.
+        \\$(2,4,8,16,32,64,\cdots)\Rightarrow a(x)=\frac{2}{1-2x} $.
+        \\$(2,0,4,0,8,0,\cdots)\Rightarrow a(x)=\frac{2}{1-2x^2} $.
+        \\$(0,2,0,4,0,8,0,\cdots)\Rightarrow a(x)=\frac{2x}{1-2x^2} $.
+        \\$(1,0,1,0,1,0,\cdots)\Rightarrow a(x)=\frac{1}{1-x^2}$.
+        \\$(1,2,1,4,1,8\cdots)\Rightarrow a(x)=\frac{-2x^3-2x^2+2x+1}{2x^4-3x^2+1}$.
+    \end{enumerate}
+\end{sol}
+
+
+
+
+\begin{hw}
+Let $a_n$ be the number of ordered triples $\langle i,j,k\rangle$ of integer numbers such that $i\geq 0,j\geq 1, k\geq 1$, and $i+3j+3k=n$. Find the generating function of the sequence $(a_0, a_1, a_2, \ldots)$ and calculate a formula for $a_n$.
+\end{hw}
+
+\begin{sol}
+    We can know from the condition that: Firstly,$a_0=a_1=\ldots=a_5=0$. Secondly, every three numbers are the same since $a_6$. Finally, with the step of $3$, $a_6,a_9,a_{12},\ldots$ are $1,1+2,1+2+3,1+2+3+4,\ldots$.
+    \\$(1,1,1,1,1,1,\cdots)\Rightarrow a(x)=\frac{1}{1-x} $
+    \\$(0,2,2,2,2,2,\cdots)\Rightarrow a(x)=\frac{2x}{1-x}$
+    \\$(0,0,3,3,3,3,\cdots)\Rightarrow a(x)=\frac{3x^2}{1-x} $
+    \\$\ldots$
+    \\$(1,1+2,1+2+3,1+2+3+4,\cdots)\Rightarrow a(x)=\frac{\frac{d^\frac{x}{1-x}}{d x} }{1-x} =\frac{1}{(1-x)^3}$.
+    \\$(1,0,0,1+2,0,0,1+2+3,0,0,1+2+3+4,\cdots)\Rightarrow a(x)=\frac{1}{(1-x^3)^3}$.
+    \\$(0,1,0,0,1+2,0,0,1+2+3,0,0,1+2+3+4,\cdots)\Rightarrow a(x)=\frac{x}{(1-x^3)^3}$.
+    \\$(0,0,1,0,0,1+2,0,0,1+2+3,0,0,1+2+3+4,\cdots)\Rightarrow a(x)=\frac{x^2}{(1-x^3)^3}$.
+    \\$(1,1,1,1+2,1+2,1+2,1+2+3,1+2+3,1+2+3,1+2+3+4,1+2+3+4,1+2+3+4,\cdots)\Rightarrow a(x)=\frac{1+x+x^2}{(1-x^3)^3}$.
+    \\$(0,0,0,0,0,0,1,1,1,1+2,1+2,1+2,1+2+3,1+2+3,1+2+3,1+2+3+4,1+2+3+4,1+2+3+4,\cdots)\Rightarrow a(x)=\frac{(1+x+x^2)x^6}{(1-x^3)^3}$.
+    \\So, $a(x)=\frac{(1+x+x^2)x^6}{(1-x^3)^3}$.
+\end{sol}
+
+
+
+\begin{hw}
+If $a(x)$ is the generating function of a sequence $(a_0, a_1, a_2, \ldots)$, please find the generating function of the sequence of partial sums $(a_0, a_0+a_1, a_0+a_1+a_2, \ldots)$.
+\end{hw}
+
+\begin{sol}
+    $a(x)=a_0+a_1x+a_2x^2+a_3x^3+\ldots$
+    \\$xa(x)=a_0x+a_1x^2+a_2x^3+a_3x^4+\ldots$
+    \\$x^2a(x)=a_0x^2+a_1x^3+a_2x^4+a_3x^5+\ldots$
+    \\$\ldots$
+    \\$(1+x+x^2+x^3+\ldots)a(x)=a_0+(a_0+a_1)x+(a_0+a_1+a_2)x^2+\ldots$
+    \\$\frac{a(x)}{1-x}=a_0+(a_0+a_1)x+(a_0+a_1+a_2)x^2+\ldots$
+\end{sol}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:

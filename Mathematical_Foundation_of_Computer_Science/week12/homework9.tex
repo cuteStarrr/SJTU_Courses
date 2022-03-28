@@ -1,0 +1,146 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 9}\\
+\vspace{2mm}
+\footnotesize{$*$ Name:\underline{Xin Xu}  \quad Student ID:\underline{519021910726} \quad Email: \underline{xuxin20010203@sjtu.edu.cn}}
+\vspace{2mm}
+\end{center}
+
+\begin{hw}
+Find an example to verify the claim that `(pairwise) independence does not  imply mutual independence'.  Pls give a detailed proof.
+\end{hw}
+
+\begin{sol}
+    Suppose there are three events: $A,B,C$ so that $Pr(A)=Pr(B)=Pr(C)=\frac{1}{5}, Pr(AB)=Pr(BC)=Pr(AC)=\frac{1}{25}, Pr(A\cup B\cup C)=\frac{13}{25}$.
+    It's pairwise independent but not mutually independent. Proof is as follows:\\
+    Since $Pr(AB)=\frac{1}{25}=\frac{1}{5}\times \frac{1}{5}=Pr(A)\times Pr(B)$, and it's also true for both $Pr(AC)$ and $Pr(BC)$. So, it's clear that events $A,B,C$ are pairwise independent. But for $Pr(ABC)$, we can calculate that:\\
+    $Pr(A\cup B\cup C)=Pr(A)+Pr(B)+Pr(C)-Pr(AB)-Pr(AC)-Pr(BC)+Pr(ABC)$, so that $Pr(ABC)= \frac{1}{25} \neq Pr(A)\times Pr(B)\times Pr(C)$.\\
+    Above all, this example denotes that `(pairwise) independence does not imply mutual independence'.
+\end{sol}
+
+
+\begin{hw}
+Show that, if $E_1, E_2, \ldots, E_n$ are mutually independent, then so are $\overline{E_1}, \overline{E_2},\ldots, \overline{E_n}$.
+\end{hw}
+
+\begin{proof}
+    We will prove it by induction.
+    For any $k$ events $E_{i_1},E_{i_2},\ldots ,E_{i_k}$, we can know that:
+    \begin{align*}
+    Pr(E_{i_1}E_{i_2}\ldots \overline{E_{i_k}})= & Pr(E_{i_1}E_{i_2}\ldots E_{i_{k-1}}) - Pr(E_{i_1}E_{i_2}\ldots E_{i_k})\\
+    = & Pr(E_{i_1})Pr(E_{i_2})\ldots Pr(E_{i_{k-1}})-Pr(E_{i_1})Pr(E_{i_2})\ldots Pr(E_{i_{k}})\\
+    = & Pr(E_{i_1})Pr(E_{i_2})\ldots (1-Pr(E_{i_{k}})).
+    \end{align*}
+    So, every time we change an event $E_{i_j}$ into $\overline{E_{i_j}}$, the corresponding probability changes to $1-Pr(E_{i_j})$. After $k$ times recursion, $Pr(\overline{E_{i_1}}\overline{E_{i_2}}\ldots \overline{E_{i_k}})=(1-E_{i_1})(1-E_{i_2})\ldots (1-E_{i_k})$.\\
+    The statement is true.
+\end{proof}
+
+
+\begin{hw}
+ A monkey types on a 26 -letter keyboard that has lowercase letters only.
+Each letter is chosen independently and uniformly at random from the alphabet. If the
+monkey types 1,000,000 letters. what is the expected number of times the sequence
+``proof'' appears?
+\end{hw}
+
+\begin{sol}
+    There are $1000000-4=999996$ ways to choose $5$ continuous chars from $1000000$ chars. And for every continuous chars, the probability of sequence "proof" appears is $Pr(proof)=\frac{1}{26^5}$. So that the expected numbe rof times is $999996\times Pr(proof)=\frac{999996}{26^5}$.
+\end{sol}
+
+
+\begin{hw}
+We have 27 fair coins and one counterfeit coin (28 coins in all), which looks like a fair coin but is a bit heavier. Show that one needs at least 4 weighings to determine the counterfeit coin. We have no calibrated weights, and in one weighing we can only find out which of two groups of some $k$ coins each is heavier, assuming that if both groups consist of fair coins only the result is an equilibrium.
+\end{hw}
+
+\begin{sol}
+    We will prove that $3$ times weighting cannot find out the counterfeit coin.\\
+    Every weighting, we can divide all the coins into three parts and choose one part from them.Since $28>3^3$, we cannot find out the counterfeit coin in $3$ times weighting. 
+    Consider the worst condition, the first choice can reduce the number to $10:(9,9,10)$. The second weighting can reduce the number to $4:(3,3,4)$. Since the number can only increase by adding the normal coins, there must be $2$ coins grouped into one:$(1,1,2)$. So that if the third weighting reduced the number to $2$, we cannot find out the counterfeit coin.
+\end{sol}
+
+
+\begin{hw}
+\begin{enumerate}
+  \item Prove that, for every integer $n$, there exists a coloring of the edges of the complete graph $K_n$ by two colors so that the total number of monochromatic copies of $K_4$ is at most ${n\choose 4}2^{-5}$.
+  \item Give a randomized algorithm for finding a coloring with at most ${n \choose 4}2^{-5}$ monochromatic (i.e. single-color) copies of $K_4$ that runs in expected time polynomial in $n$.
+\end{enumerate}
+\end{hw}
+
+\begin{proof}
+    \begin{enumerate}
+        \item For any $K_4$, the probability of being monochromatic is $\frac{1}{2^{\binom{4}{2} }}\times 2=\frac{1}{2^5}$. To choose $4$ nodes from $n$ nodes to form a $K_n$, there is at most $\binom{n}{4} $ ways to form a $K_n$. So that the number is at most ${n\choose 4}2^{-5}$.
+        \item Every time the algorithm finds a $K_4$ out of $K_n$, and examine it monochromatic or not. The loop needs $\binom{n}{4} $ times and the examination needs $6$ times. So the total time is $6\binom{n}{4} $ satisfying polynomial in $n$.
+    \end{enumerate}
+\end{proof}
+
+
+\begin{hw}
+Use the Lovasz local lemma to show that if \[4 {k \choose 2} {n \choose {k-2}}2^{1-{k\choose 2}}\leq 1\]
+then it is possible to color the edges of $K_n$ with two colors so that it has no monochromatic (i.e. single color) $K_k$ subgraph.
+\end{hw}
+
+\begin{proof}
+    We assume that the event $E_i$ is: chosen $K_k^i$ is monochromatic. So that $Pr(E_i)=2^{1-\binom{k}{2} }$. And for every event $E_i$, if $E_i$ with other events $E_j$ can combine to form a monochromatic $K_k$, there is an edge between node $E_i$ and node $E_j$.
+    So that $d< {k \choose 2} {n \choose {k-2}}$. With conditions above, $4dPr(E_i)\leq 1$, so that $Pr(\overline{E_1}\overline{E_2}\ldots \overline{E_n})\geq 0$, which means it is possible to color the edges of $K_n$ with two colors so that it has no monochromatic (i.e. single color) $K_k$ subgraph.
+\end{proof}
+
+
+\begin{hw}
+What is the expected number of trees with $k$ vertices in $G\in \mathcal{G}(n,p)$?
+\end{hw}
+
+\begin{sol}
+    For any $k$ nodes, the probability to form a tree is $Pr(T)= k^{k-2}p^{k-1}(1-p)^{\binom{k-2}{2} }$.
+    And there are $\binom{n}{k} $ ways to find $k$ nodes. So that the expected number is $\binom{n}{k}k^{k-2}p^{k-1}(1-p)^{\binom{k-2}{2} } $.
+\end{sol}
+
+
+\begin{hw}
+Show that if almost all $G\in \mathcal{G}(n,p)$ have a graph property $\mathcal{P}_1$ and almost all $G\in \mathcal{G}(n,p)$ have a graph property $\mathcal{P}_2$, then almost all $G\in \mathcal{G}(n,p)$ have both properties.
+\end{hw}
+
+\begin{proof}
+    \begin{align*}
+        \lim_{n \to \infty} Pr(\mathcal{P}_1\mathcal{P}_2)=&\lim_{n \to \infty}Pr(\mathcal{P}_1)+Pr(\mathcal{P}_2)-Pr(\mathcal{P}_1\cup \mathcal{P}_2)\\
+        =&\lim_{n \to \infty} 1+1-Pr(\mathcal{P}_1\cup \mathcal{P}_2)\\
+        \geq & \lim_{n \to \infty} 1+1-1\\
+        \geq & 1
+    \end{align*}
+    So that almost all $G\in \mathcal{G}(n,p)$ have both properties.
+\end{proof}
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,183 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 7}\\
+\vspace{2mm}
+\footnotesize{$*$ Name:\underline{Xin Xu}  \quad Student ID:\underline{519021910726} \quad Email: \underline{xuxin20010203@sjtu.edu.cn}}
+\vspace{2mm}
+\end{center}
+
+
+\begin{hw}Fill in the blanks with either true ($\checkmark$) or false ($\times$)
+\begin{table}[ht]
+ \centering
+\begin{tabular}{|c|c|c|c|c|}
+ \hline
+  $f(n)$& $g(n)$& $f=O(g)$ & $f=\Omega (g)$& $f=\Theta(g)$ \\ \hline
+  $2n^3+3n$& $100n^2+2n+100$&  $\times$ & $\checkmark$ & $\times$   \\ \hline
+  $50n+\log n$& $10n+\log \log n$& $\checkmark$  & $\checkmark$ & $\checkmark$  \\ \hline
+  $50n\log n$& $10n\log \log n$& $\times$  & $\checkmark$ & $\times$  \\ \hline
+  $\log n$& $ \log^2 n$&  $\checkmark$  & $\times$ &  $\times$ \\ \hline
+  $n!$& $ 5^n$& $\times$  &  $\checkmark$ & $\times$  \\ \hline
+ \end{tabular}
+\end{table}
+\end{hw}
+
+\begin{hw}
+\begin{enumerate}
+\item Find two functions $f(x)$ and $g(x)$ such that $f(x)\neq O(g(x))$ and $g(x)\neq O(f(x))$.
+
+\begin{sol}
+    Let $g(n)=1$ for any integer $n\in N$.
+     $$ f(x)=\left\{
+        \begin{aligned}
+        \frac{1}{n},n\neq 2^k(k\in N) \\
+        n,n=2^k 
+        \end{aligned}
+        \right.
+        $$
+    And the statement that $f(x)\neq O(g(x))$ and $g(x)\neq O(f(x))$ is true because $\lim_{n \to \infty} \frac{f(n)}{g(n)} $ and $\lim_{n \to \infty} \frac{g(n)}{f(n)} $ both don't exist.
+\end{sol}
+
+\item Furthermore, we say a function $h:\mathbb{R}\rightarrow \mathbb{R}$ is \emph{monotonically increasing} if it satisfies the property `$x\leq y ~\Rightarrow~ h(x)\leq h(y)$'.
+ \\
+ Find two monotonically increasing functions $f(x)$ and $g(x)$ such that $f(x)\neq O(g(x))$ and $g(x)\neq O(f(x))$.
+ \end{enumerate}
+
+\begin{sol}
+    for any integer $k\in N$:
+        $$ f(x)=\left\{
+        \begin{aligned}
+        2^n,n=2^{2k+1} \\
+        2^{2^{2k+1}},2^{2k+1}<n<2^{2k+3} 
+        \end{aligned}
+        \right.
+        $$
+        $$ g(x)=\left\{
+        \begin{aligned}
+        2^n,n=2^{2k} \\
+        2^{2^{2k}},2^{2k}<n<2^{2k+2} 
+        \end{aligned}
+        \right.
+        $$
+        And the statement that $f(x)\neq O(g(x))$ and $g(x)\neq O(f(x))$ is true because $\lim_{n \to \infty} \frac{f(n)}{g(n)} $ and $\lim_{n \to \infty} \frac{g(n)}{f(n)} $ both don't exist.\\
+        When $n=2^{2k+1}$, $\lim_{k \to \infty} \frac{f(n)}{g(n)}= \frac{2^{2^{2k+1}}}{2^{2^{2k}}}=2^{2^{2k}} $.
+        When $n=2^{2k+2}$, $\lim_{k \to \infty} \frac{g(n)}{f(n)}= \frac{2^{2^{2k+2}}}{2^{2^{2k+1}}}=2^{2^{2k+1}} $.\\
+        So, $f(x)\neq O(g(x))$ and $g(x)\neq O(f(x))$.
+ \end{sol}
+
+ \vspace{2mm}
+    (Please give the detailed proof that your functions satisfy the requirements.)
+\end{hw}
+
+
+
+\begin{hw}
+ Prove that
+
+\begin{enumerate}[(a)]
+  \item $\left(1+ \frac{1}{n}\right)^n\leq e$ for all $n\geq 1$.
+  
+  \begin{proof}
+    Since $1+x\leqslant e^x$, $\left(1+ \frac{1}{n}\right)^n\leqslant (e^\frac{1}{n})^n=e $.
+  \end{proof}
+
+  \item $\left(1+\frac{1}{n}\right)^{n+1}\geq e$ for all $n\geq 1$.
+  
+  \begin{proof}
+    $\left(1+\frac{1}{n}\right)^{n+1}=(\frac{1}{\frac{n}{n+1} } )^{n+1}=(\frac{1}{1-\frac{1}{n+1} } )^{n+1}$. Since $1+x\leqslant e^x$,$1-\frac{1}{n+1}\leqslant e^{-\frac{1}{n+1} }$, so $\frac{1}{1-\frac{1}{n+1} } \geqslant e^{\frac{1}{n+1} }$, so $(\frac{1}{1-\frac{1}{n+1} } )^{n+1}\geqslant (e^{\frac{1}{n+1} })^{n+1}=e$. 
+    As a result, $\left(1+\frac{1}{n}\right)^{n+1}\geq e$.
+  \end{proof}
+
+  \item Using $(a)$ and $(b)$, conclude that $\lim_{n\rightarrow \infty}\left(1+\frac{1}{n}\right)^n =e$.
+  
+  \begin{proof}
+    From problem (a), we know that $\lim_{n\rightarrow \infty}\left(1+\frac{1}{n}\right)^n \leqslant e$.\\
+    From problem (b), we know that $\left(1+\frac{1}{n}\right)^{n}\geq \frac{e}{1+\frac{1}{n} } $. So, $\lim_{n\rightarrow \infty}\left(1+\frac{1}{n}\right)^n \geqslant \lim_{n\rightarrow \infty} \frac{e}{1+\frac{1}{n} }=e$. As a result, $\lim_{n\rightarrow \infty}\left(1+\frac{1}{n}\right)^n =e$.
+  \end{proof}
+
+% \item Prove $\left(1-\frac{1}{n}\right)^n\leq \frac{1}{e}\leq \left(1-\frac{1}{n}\right)^{n-1}$.
+\end{enumerate}
+\end{hw}
+
+
+
+\begin{hw}
+Prove \emph{Bernoulli's inequality}: for each natural number $n$ and for every real $x\geq -1$, we have $(1+x)^n\geq 1+nx$.
+\end{hw}
+
+\begin{proof}
+    We will prove it by induction. The statement $(1+x)^n\geq 1+nx$ is true when $n=1$. Hypothesis that it's true for any natural number $n\geqslant 1$ that $(1+x)^n\geq 1+nx$. So, $(1+x)^{n+1}\geq (1+nx)(1+x)=1+(n+1)x+nx^2\geq 1+(n+1)x$. So, the statement is true for any natrual number $n$.
+\end{proof}
+
+\begin{hw} Prove that for $n=1,2,\ldots,$ we have
+\[
+2\sqrt{n+1}-2<1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\cdots +\frac{1}{\sqrt{n}}\leq 2\sqrt{n}-1.
+\]
+\end{hw}
+
+\begin{proof}
+    We will prove it by induction. The statement is true when $n=1$. Suppose that it holds true for any natrual number $n\geq 1$ that $2\sqrt{n+1}-2<1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\cdots +\frac{1}{\sqrt{n}}\leq 2\sqrt{n}-1$. 
+    So, $2\sqrt{n+1}-2+ \frac{1}{\sqrt{n+1}}<1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\cdots +\frac{1}{\sqrt{n}} + \frac{1}{\sqrt{n+1}}\leq 2\sqrt{n}-1+ \frac{1}{\sqrt{n+1}}$.\\
+    So, we should prove $2\sqrt{n}-1+ \frac{1}{\sqrt{n+1}}\geq 2\sqrt{n+1}-1$. The both sides times $\sqrt{n+1}$ and square, we can get $4n(n+1)\leq (2n+1)^2\Rightarrow 4n^2+4n\leq 4n^2+4n+1$. And that's true.\\
+    Additionally, we should prove $2\sqrt{n+2}-2\leq 2\sqrt{n+1}-2+ \frac{1}{\sqrt{n+1}}$. The both sides times $\sqrt{n+1}$ and square, we can get $4(n+2)(n+1)\leq (2n+3)^2\Rightarrow 4n^2+12n+8\leq 4n^2+12n+9$. And that's true.\\
+    In conclusion, the statement is proved.
+\end{proof}
+
+\begin{hw}
+\hspace{1mm}
+\begin{enumerate}[a)]
+  \item Show that the product of all primes $p$ with $m<p\leq 2m$ is at most ${2m\choose m}$.
+  
+  \begin{proof}
+    ${2m\choose m}=\frac{2m(2m-1)(2m-2)\ldots 2\times 1}{m(m-1)(m-2)\ldots 2\times 1} $. The numerator is the product of all the numbers that between $m$ and $2m$. Since prime is a number only has divisors of $1$ and itself, the numerator should divide by all the possible factors that the composite numbers between $m$ and $2m$ hold, which is the denominator of ${2m\choose m}$. So, the statement has proved.
+  \end{proof}
+
+  \item Using a), prove the estimate $\pi(x)=\mathcal{O}(\frac{x}{\ln x})$, where $\pi(x)$ denote the number of primes not exceeding the number $x$.
+  
+  \begin{proof}
+    Suppose $x=2^k$. Since the product of all primes $p$ with $\frac{x}{2} <p<x$ is at most $x \choose \frac{x}{2}$, the largest number of primes between $\frac{x}{2}$ and $x$ is $\log_{\frac{x}{2}} {x\choose \frac{x}{2}}$. We know from the estimate example that ${n\choose k} \leq (\frac{en}{k})^k$, so $\log_{\frac{x}{2}} {x\choose \frac{x}{2}}\leq \log_{\frac{x}{2}} {(2e)^{\frac{x}{2}}}= \frac{x}{2} \log_{\frac{x}{2}} {2e}=\frac{x}{2} \frac{\ln {2e}}{\ln \frac{x}{2}}$.
+    So, $\pi(x)\leq \log_{\frac{x}{2}} {x\choose \frac{x}{2}} + \log_{\frac{x}{4}} {\frac{x}{2}\choose \frac{x}{4}} + \ldots +\log_2 {4\choose 2}+1\leq 2\ln {2e} (\frac{\frac{x}{2}}{\ln \frac{x}{2}}+\frac{\frac{x}{4}}{\ln \frac{x}{4}}+\ldots \frac{\frac{x}{2^{k/2}}}{\ln \frac{x}{2^{k/2}}})\leq 2 \ln {2e}(\frac{x}{\ln x}+ \frac{\frac{x}{2}}{\ln x}+ \frac{\frac{x}{4}}{\ln x} +\ldots +\frac{\frac{x}{2^{k/2-1}}}{\ln x})\leq 2\ln {2e} \frac{2x}{\ln x}=O(\frac{x}{\ln x})$.\\
+    So, the statement is proved.
+  \end{proof}
+  
+%  \item Let $p$ be a prime, and let $m,k$ be natural numbers. Prove that if $p^k$ divides ${2m \choose m}$ then $p^k\leq 2m$.
+%  \item Using c), prove $\pi(n)=\Omega(\frac{n}{\ln n})$.
+\end{enumerate}
+
+\end{hw}
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:

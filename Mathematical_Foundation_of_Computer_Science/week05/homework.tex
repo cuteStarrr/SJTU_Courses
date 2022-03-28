@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 4}\\
+\vspace{2mm}
+\footnotesize{$*$ Name:\underline{Xin Xu}  \quad Student ID:\underline{519021910726} \quad Email: \underline{xuxin20010203@sjtu.edu.cn}}
+\vspace{2mm}
+
+\end{center}
+
+
+\begin{hw}
+Count the number of linear extensions for the following partial ordering:
+
+ $X$ is a disjoint union of sets $X_1, X_2,\ldots, X_k$ of sizes $r_1, r_2,\ldots, r_k$, respectively. Each $X_i$ is linearly ordered by $\preceq$, and no two elements from the different $X$ are comparable.
+\end{hw}
+
+\begin{sol}
+    There are $(r_1+r_2+\ldots +r_k)!$ ways of permutations if it's unrestricted. But actually for every case, the permutation of $r_i$ elements in $X_i$ is fixed, which means there is only $1$ way of permutation contrast to $r_i!$ permutations with unrestriction.
+    So, the final number of linear extensions is $\binom{(r_1+r_2+\ldots +r_k)!}{r_1, r_2,\ldots, r_k}$.
+\end{sol}
+
+\begin{hw}
+Given a set $X$ with $|X|~=n$, determine the number of ordered set pairs $\langle A, B\rangle $ where $A \subseteq  B \subseteq X$.
+\end{hw}
+
+\begin{sol}
+    We can divide $X$ into three parts:$W,Y,Z$, and let $W=A,Y=B\backslash A,Z=X\backslash B$. So, $A=W,B=W\cup Y,X=W\cup Y\cup Z$, which satisfies $A\subseteq B\subseteq X$.
+    So, the number of ordered pairs is equal to the number of ways to put $n$ elements into three parts $W,Y,Z$, and that is $3^n$.
+\end{sol}
+
+\begin{hw}
+There are $n$ married couples attending a dance. How many ways are there to form $n$ pairs for dancing if no wife should dance with their husband.
+\end{hw}
+
+\begin{sol}
+    We can transfer this question to another question: How many ways are there to permutate $n$ integers so that every integer cannot stand up its location? 
+    Because of inclusion-exclusion principle, the answer is $n!-\sum_{k = 1}^{n} (-1)^{k-1} \frac{n!}{k!} $.
+\end{sol}  
+
+\begin{hw}
+Count the permutations with exactly $k$ fixed points.  (Remark: $\pi$ is a permutation of the set \{1,2,\ldots, n\}. Call an index $i$ with $\pi(i)=i$ a \emph{fixed point} of the permutation $\pi$.)
+\end{hw}
+
+\begin{sol}
+    To choose $k$ locations from total $n$ locations, there are $\binom{n}{k} $ ways. And for these $k$ points, there is only a fixed way to permutate. For the remainded $n-k$ locations, it's a same question of \textbf{problem 3.}
+    So, there are $(n-k)!-\sum_{i = 1}^{n-k} (-1)^{i-1} \frac{(n-k)!}{i!}$ to permutate the remainded $n-k$ elements. In conclusion, the total answer is $\binom{n}{k} ((n-k)!-\sum_{i = 1}^{n-k} (-1)^{i-1} \frac{(n-k)!}{i!})$.
+\end{sol}
+
+\begin{hw}
+What is wrong with the following inductive “proof” that $D(n) =
+(n-1)!$ for all $n \geq 2$? Can you find a false step in it? For $n = 2$,
+the formula holds, so assume $n \geq 3$. Let $\pi$ be a permutation of
+$\{1, 2, . . . , n-1\}$ with no fixed point. We want to extend it to a permutation
+$\pi'$ of $\{1, 2, . . . , n\}$ with no fixed point. We choose a number
+$i \in \{1, 2, . . . , n-1\}$, and we define $\pi'(n) = \pi(i), \pi'(i) = n$, and $\pi'(j) = \pi(j)$ for $j\neq i$, n. This defines a permutation of $\{1, 2, . . . , n\}$, and it is easy
+to check that it has no fixed point. For each of the $D(n-1) = (n-2)!$
+possible choices of $\pi$, the index $i$ can be chosen in $n-1$ ways. Therefore,
+$D(n) = (n-2)! \cdot (n-1) = (n-1)!$.
+\end{hw}
+
+\begin{sol}
+    The wrong step is that "We want to extend it to a permutation $\pi'$ of $\{1, 2, . . . , n\}$ with no fixed point." Actually, the permutation of $\{1, 2, . . . , n\}$ without fixed point can be extended in both permutation of
+    $\{1, 2, . . . , n-1\}$ with no fixed point and with fixed point. For example, when $n=3$, there are $2$ permutations with no fixed point that's $\{3,1,2\},\{2,3,1\}$. According to the wrong induction, when $n=4$, there are $6$ permutations with no fixed point arise from the former $2$ permutations.
+    But actually, there is a permutation of $\{2,1,4,3\}$ extended from the permutation of $\{2,1,3\}$, which holds one fixed point when $n=3$. But this induction proof doesn't take this condition to consideration, so it's wrong.
+\end{sol} 
+
+\begin{hw}
+How many ways are there to seat $n$ married couples at a round table with $2n$ chairs in such a way that the couples never sit next to each other?
+\end{hw}
+
+\begin{sol}
+    Let $S_{2n}$ be the number of ways to permunate the $n$ couples randomly. It's easy to know that $|S_{2n}|=(2n)!$. For $i=1,2,\ldots, n$, let $A_i=\{\pi \in S_{2n}|\pi(i)=\text{the $i-th$ couple sit together.}\}$. So, the answer $D(2n)=|S_{2n}|-|A_1\cup A_2\cup \ldots \cup A_n|$.
+    And $|A_i|=2\times (2n-1)!,|A_i\cap A_j|=2^2\times (2n-2)! \ldots |A_{i+1}\cap A_{i+2}\cap A_{i+3}\cap \ldots \cap A_{i+k}|=2^k\times (2n-k)! $. According to inclusion-exclusion principle, $|A_1\cup A_2\cup \ldots \cup A_n|=\sum_{k = 1}^{n} (-1)^{k-1}\binom{n}{k} 2^k (2n-k)! $.
+    So, the answer is $(2n)!-\sum_{k = 1}^{n} (-1)^{k-1}\binom{n}{k} 2^k (2n-k)!$.
+\end{sol}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:
