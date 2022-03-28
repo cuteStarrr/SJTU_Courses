@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem*{solution}{Solution}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 2}\\
+\vspace{2mm}
+\footnotesize{$*$ Name:\underline{Xin Xu}  \quad Student ID:\underline{519021910726} \quad Email: \underline{xuxin20010203@sjtu.edu.cn}}
+\vspace{2mm}
+\end{center}
+
+
+\begin{hw}
+Let$(X,\preceq_1)$, $(Y,\preceq_2)$ be (partially) ordered sets. We say that they are \emph{isomorphic} if there exists a bijection $f:X\rightarrow Y$ such that for every $x,y\in X$, we have $x\preceq_1 y$ if and only if $f(x)\preceq_2 f(y)$.
+\begin{enumerate}
+  \item Draw Hasse diagrams for all nonisomorphic 3-element posets.
+  \item Prove that any two $n$-element linearly ordered sets are isomorphic.
+  \item Prove that $(\mathbb{N},\leq)$ and $(\mathbb{Q},\leq)$ are not isomorphic. ( where $\mathbb{N}$ is the set of natural numbers, $\mathbb{Q}$ is the set of rational numbers, $\leq$ is the usual `less or equal to' between numbers).
+\end{enumerate}
+
+\begin{solution}
+    \begin{enumerate}
+        \item the picture is below.
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.4\textwidth]{3-element-hasse.pdf}
+            \caption{3-element nonisomorphic posets}\label{3-element-hasse}
+        \end{figure}
+        \item \begin{proof}
+                  Supposing that $A$ and $B$ are two $n-$element linearly ordered sets, we define a bijection function $f$ by recurrence such that the minimal element $a_0$ in $A \leftrightarrow$ the minimal element $b_0$ in $B$, and it's the same with sets $A'=A\setminus  \{a_0\}$ and $B'=B\setminus \{b_0\}$ until reaching to the maximal element. 
+                  Because of the definition of linearly ordered set, every time there is just a minimal element in each recurrency, so the recurrency is right.
+                  \\Thus, we have the statement :for every $a_i,a_j\in A$, we have $a_i\preceq_1 a_j$ if and noly if $f(a_i)=b_i,f(a_j)=b_j$, which satisfies $b_i\preceq_2 b_j$.
+              \end{proof}
+        \item \begin{proof}
+                  Because $(\mathbb{N},\leq)$ and $(\mathbb{Q},\leq)$ don't have the same equivalence, there isn't any bijection function between $(\mathbb{N},\leq)$ and $(\mathbb{Q},\leq)$. So, $(\mathbb{N},\leq)$ and $(\mathbb{Q},\leq)$ are not isomorphic.
+              \end{proof}
+    \end{enumerate}
+\end{solution}
+\end{hw}
+
+
+\begin{hw}
+Prove or disprove: If a partially ordered set $(X,\preceq)$ has a single minimal element, then it is a smallest element as well.
+\end{hw}
+
+\begin{proof}
+    The statement is true. We will prove it by induction.
+    \\\textbf{Basis.} When the partially ordered set $(X,\preceq)$ only has one element, the only element is the minimal element as well as the smallest element.
+    \\\textbf{Hypothesis.} For any partially ordered set $(X,\preceq)$ with $n$ elements $n\geqslant 1$, if $(X,\preceq)$ have a single minimal element, then it is a smallest element as well.
+    \\\textbf{Induction.} For a partially ordered set $(X,\preceq)$ with $n+1$ elements, we first pick out an element $x_0$, and consider the left $n$ elements set <$x_1,x_2,...,x_n$>. According to our hypothesis, the $n-$element set has a single minimal element which is also the smallest element. Without generity, we assume it $x_1$. Then, we would put the element $x_0$ back.
+    \\\textbf{case a.} $x_0 \preceq x_1$. In this case, $x_0$ becomes the minimal element. Because $x_1$ is the minimal element and smallest element of $n-$element set, $x_1 \preceq x_2,x_3,...,x_n$ and $x_0\preceq x_1$. Thus $x_0 \preceq x_1,x_2,...,x_n$, which means $x_0$ is the smallest element too.
+    \\\textbf{case b.} $x_0$ is in the second floor of the $n-$element, which means $x_1\preceq x_0$ directly. In this case, $x_0$ is the only minimal element. And for our hypothesis, $x_1 \preceq x_2,x_3,...,x_n$ and $x_1\preceq x_0$, so $x_1$ is the smallest element too.
+    \\\textbf{case c.} $x_0$ is in the higher floor of the $n-$element. In this case, $x_1$ is the minimal element. We assume that $x_0$ is in the $k^{th}$ floor so there is a connection to $(k-1)^{th}$ floor, and $(k-1)^{th}$ floor has a connection to $(k-2)^{th}$ floor, and .... Finally this chain down to $x_1$, which means $x_1\preceq x_0$. So $x_1 \preceq x_0,x_2,x_3,...,x_n$, $x_1$ is the smallest element too.
+\end{proof}
+
+\begin{hw}
+Let $(X,\preceq)$ and $(X',\preceq')$ be partially ordered sets. A mapping $f:X\rightarrow X'$ is called an embedding of $(X,\preceq)$ into $(X',\preceq')$ if the following conditions hold:
+\begin{itemize}
+  \item $f$ is an injective mapping;
+  \item $f(x)\preceq' f(y)$ if and only if $x\preceq y$.
+\end{itemize}
+
+Now consider the following problem
+
+\begin{enumerate}[a)]
+  \item Describe an embedding of the set $\{1,2\}\times \mathbb{N}$ with the lexicographic ordering into the ordered set $(\mathbb{Q},\leq)$.
+  \item Solve the analog of a) with the set $\mathbb{N}\times \mathbb{N}$ (ordered lexicographically) instead of $\{1,2\}\times \mathbb{N}$.
+ \end{enumerate}
+
+ \end{hw}
+ 
+ \begin{solution}
+    \begin{enumerate}[a)]
+        \item The set $\{1,2\}\times \mathbb{N}$ has the element $(x,y)$ satisfying $x\in \{1,2\}$ and $y\in \mathbb{N}$.
+        We define a function $f$ with features below: Firstly, $f$ maps the element $(x,y)$ in to a decimal, and if $x=1$, then the single digit is $1$, else the single digit is $2$. Then, the number of $1$ behind the decimal point is $y$. 
+        \\For example, $(1,1)$ maps to $1.1$, $(1,2)$ maps to $1.11$, $(2,1)$ maps to $2.1$, $(2,3)$ maps to $2.111$.
+        \item We assume an element $(x,y) \in \mathbb{N}\times \mathbb{N}$. And the function $f$ can maps $(x,y)$ to a decimal $x.111...111$, the number of $1$ behind decimal point is $y$.
+    \end{enumerate}
+\end{solution}
+
+ \begin{hw}
+ Prove the following strengthening of the \textbf{Erd$\ddot{o}$s-Szekeres Lemma}: Let $\kappa,\ell$ be natural numbers. Then every sequence of real numbers of length $\kappa\ell+1$ contains an nondecreasing subsequence of length $\kappa+1$ or a decreasing subsequence of length $\ell+1$.
+ \end{hw}
+
+\begin{proof}
+    Let $\kappa\ell=n^2$. Assume the $(n^2+1)$-element sequence of real numbers is $(x_1,x_2,x_3,...,x_{n^2+1})$ and the set $I=\{1,2,...,n^2+1\}$. We define the relation $\preccurlyeq$ on $I$ such that $i\preccurlyeq j$ if and only if $(i\leqslant j)\land (x_i\leqslant x_j)$.
+    And $(I,\preccurlyeq)$ is partially ordered set for the definition. According to the deduction of Mirsky's Theorem, for any partially ordered set $P=(S,\preccurlyeq)$, we have $\alpha (P) \times \omega (P)\geqslant |S|$. So, we have two cases:
+    \\\textbf{case a.} $\omega(I,\preccurlyeq)>n$: there is a nondecreasing subsequence that $x_{i1}\leqslant x_{i2}\leqslant x_{i3}\leqslant ... \leqslant x_{in} \leqslant ... \leqslant x_{im}$.
+    \\\textbf{case b.} $\alpha(I,\preccurlyeq)>n$: For the index must can be compared, so, if $i_1< i_2< ... < i_m,m>n$, there is an increasing subsequence of $x_{i1} > x_{i2} > x_{i3} > ... > x_{im}$.
+    \\Above all, we should prove that $\kappa \leqslant n$ or $\ell \leqslant n $. If they both $>n$, then $\kappa\ell>n^2$, which is contrast to our premiss. So, $\kappa \leqslant n$ or $\ell \leqslant n $.
+    \\In a nutshell, this statement is proved.
+\end{proof}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:
